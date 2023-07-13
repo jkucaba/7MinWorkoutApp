@@ -71,6 +71,30 @@
 
 
     </FrameLayout>
+    <TextView
+        android:id="@+id/tvUpcomingLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="UPCOMING EXERCISE: "
+        android:textColor="@color/colorPrimary"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/flProgressBar"
+        app:layout_constraintBottom_toTopOf="@+id/tvUpcomingExerciseName"
+        tools:visibility="visible" />
+    <TextView
+        android:id="@+id/tvUpcomingExerciseName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorPrimary"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvUpcomingLabel"
+        tools:visibility="visible" />
 
     <ImageView
         android:id="@+id/ivImage"
@@ -80,7 +104,9 @@
         android:src="@drawable/ic_jumping_jacks"
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@id/tvExercise"
-        app:layout_constraintTop_toBottomOf="@id/toolBarExercise" />
+        app:layout_constraintTop_toBottomOf="@id/toolBarExercise"
+        tools:layout_editor_absoluteX="0dp" />
+
     <TextView
         android:id="@+id/tvExercise"
         android:layout_width="wrap_content"
