@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">7MinWorkoutApp</string>
     <string name="start_image">start image</string>
+    <string name="image">image</string>
+    <string name="congratulations">Congratulations!</string>
+    <string name="you_have_done_the_workout">You have done the workout!</string>
+    <string name="finish">FINISH</string>
 </resources>
