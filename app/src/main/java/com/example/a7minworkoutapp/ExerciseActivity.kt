@@ -14,7 +14,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.a7minworkoutapp.databinding.ActivityExerciseBinding
 import com.example.a7minworkoutapp.databinding.ActivityMainBinding
-import com.example.a7minworkoutapp.databinding.DailogCustomBackConfirmationBinding
+import com.example.a7minworkoutapp.databinding.DialogCustomBackConfirmationBinding
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -70,7 +70,7 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
     }
     private fun customDialogFOrBackButton(){
         val customDialog = Dialog(this)
-        val dialogBinding = DailogCustomBackConfirmationBinding.inflate(layoutInflater)  //inflate xml item and use its items // custom binding for xml file
+        val dialogBinding = DialogCustomBackConfirmationBinding.inflate(layoutInflater)  //inflate xml item and use its items // custom binding for xml file
         customDialog.setContentView(dialogBinding.root)
         customDialog.setCanceledOnTouchOutside(false)       //user cannot cancel this dialog
         dialogBinding.tvYes.setOnClickListener { //button YES
@@ -211,7 +211,7 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
             player!!.stop()
         }
 
-            binding = null
+        binding = null
 
     }
 
