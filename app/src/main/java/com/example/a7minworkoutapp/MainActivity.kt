@@ -19,8 +19,10 @@ class MainActivity : AppCompatActivity() {
         binding?.flStart?.setOnClickListener{   //we can acces theirs id directely //we can use it in whole file
             val intent = Intent(this, ExerciseActivity::class.java)
             startActivity(intent)
-
-
+        }
+        binding?.flBMI?.setOnClickListener{   //we can acces theirs id directely //we can use it in whole file
+            val intent = Intent(this, BMIActivity::class.java)
+            startActivity(intent)
         }
 
     }
