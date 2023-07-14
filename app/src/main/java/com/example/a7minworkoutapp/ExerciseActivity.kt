@@ -1,5 +1,6 @@
 package com.example.a7minworkoutapp
 
+import android.app.Dialog
 import android.content.Intent
 import android.media.MediaPlayer
 import android.net.Uri
@@ -13,6 +14,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.a7minworkoutapp.databinding.ActivityExerciseBinding
 import com.example.a7minworkoutapp.databinding.ActivityMainBinding
+import com.example.a7minworkoutapp.databinding.DailogCustomBackConfirmationBinding
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -48,7 +50,7 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
             supportActionBar?.setDisplayHomeAsUpEnabled(true) //activates back button
         }
         binding?.toolBarExercise?.setNavigationOnClickListener {
-            onBackPressed()
+            customDialogFOrBackButton()     //we customize what the back button should do
         }
 
         exerciseList = Constants.defaultExerciseList()
@@ -60,6 +62,26 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
         setupRestView()
         setupExerciseStatusRecyclerView()
+    }
+
+    override fun onBackPressed() {
+        customDialogFOrBackButton()
+       // super.onBackPressed()
+    }
+    private fun customDialogFOrBackButton(){
+        val customDialog = Dialog(this)
+        val dialogBinding = DailogCustomBackConfirmationBinding.inflate(layoutInflater)  //inflate xml item and use its items // custom binding for xml file
+        customDialog.setContentView(dialogBinding.root)
+        customDialog.setCanceledOnTouchOutside(false)       //user cannot cancel this dialog
+        dialogBinding.tvYes.setOnClickListener { //button YES
+            this@ExerciseActivity.finish()
+            customDialog.dismiss()      //dismiss the custom dialog
+        }
+        dialogBinding.tvNo.setOnClickListener { //button NO
+            customDialog.dismiss()
+        }
+        customDialog.show()
+
     }
 
     private fun setupExerciseStatusRecyclerView(){
