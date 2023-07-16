@@ -24,6 +24,10 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, BMIActivity::class.java)
             startActivity(intent)
         }
+        binding?.flHistory?.setOnClickListener{   //we can acces theirs id directely //we can use it in whole file
+            val intent = Intent(this, HistoryActivity::class.java)
+            startActivity(intent)
+        }
 
     }
 

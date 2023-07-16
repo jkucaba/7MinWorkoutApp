@@ -23,8 +23,8 @@ class BMIActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityBmiBinding.inflate(layoutInflater)
         setContentView(binding?.root)
-        setSupportActionBar(binding?.toolbarBmiActivity)
 
+        setSupportActionBar(binding?.toolbarBmiActivity)
         if(supportActionBar != null){
             supportActionBar?.setDisplayHomeAsUpEnabled(true) //activates back button
             supportActionBar?.title = "CALCULATE BMI"
