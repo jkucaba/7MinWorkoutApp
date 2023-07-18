@@ -2,8 +2,12 @@ package com.example.a7minworkoutapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import androidx.lifecycle.lifecycleScope
 import com.example.a7minworkoutapp.databinding.ActivityBmiBinding
 import com.example.a7minworkoutapp.databinding.ActivityHistoryBinding
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 
 class HistoryActivity : AppCompatActivity() {
 
@@ -22,5 +26,24 @@ class HistoryActivity : AppCompatActivity() {
         binding?.toolbarHistoryActivity?.setNavigationOnClickListener {
             onBackPressed()
         }
+
+        val historyDao = (application as WorkoutApp).db.historyDao()
+        getAllCompletedDates(historyDao)
     }
+
+    private fun getAllCompletedDates(historyDao: HistoryDao){
+        lifecycleScope.launch{
+            historyDao.fetchAllDates().collect{allCompletedDatesList ->
+                for(i in allCompletedDatesList){
+                    Log.e("Date: ", ""+i)
+                }
+            }
+        }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        binding = null
+    }
+
 }
